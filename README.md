@@ -105,11 +105,6 @@ sudo dnf -y install akmod-nvidia xorg-x11-drv-nvidia-cuda
 > ```
 > Do not reboot. Keep repeating until the driver version appears.
 
-Enable `nvidia-modeset`:
-```sh
-sudo grubby --update-kernel=ALL --args="nvidia-drm.modeset=1"
-```
-
 ---
 
 ## 4. 🎬 Install Codecs and HW Video Acceleration
@@ -155,8 +150,22 @@ Enable **OpenH264** for Firefox
 sudo dnf install -y openh264 gstreamer1-plugin-openh264 mozilla-openh264
 sudo dnf config-manager setopt fedora-cisco-openh264.enabled=1
 ```
-> [!IMPORTANT]
-> After this enable the **OpenH264** Plugin in: [**Firefox's settings**](about:addons) -> **Plugins**.
+
+After this enable the **OpenH264** Plugin in Firefox's settings: [**about:addons**](about:addons) -> **Plugins** -> `···` -> `Always Activate`.
+
+---
+
+## 5. Optimizations
+
+Enable `nvidia-modeset`:
+```sh
+sudo grubby --update-kernel=ALL --args="nvidia-drm.modeset=1"
+```
+
+Disable `NetworkManager-wait-online.service`:
+```sh
+sudo systemctl disable NetworkManager-wait-online.service
+```
 
 ---
 
