@@ -20,15 +20,15 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 
 ## 2. 🔄 Update the System
 
-Refresh the whole system:
+Update `dnf` packages and reboot to apply:
 ```sh
-sudo dnf -y update --refresh
-flatpak -y update
+sudo dnf -y offline-upgrade download
+sudo dnf -y offline-upgrade reboot
 ```
 
-Reboot the system to apply any pending kernel updates:
+Update `flatpak` packages:
 ```sh
-systemctl reboot
+flatpak -y update
 ```
 
 ---
