@@ -56,7 +56,7 @@ sudo fwupdmgr update
 > mokutil --sb-state
 > ```
 
-Install this requirements:
+Install these requirements:
 ```sh
 sudo dnf -y install kmodtool akmods mokutil openssl
 ```
