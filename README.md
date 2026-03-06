@@ -164,8 +164,9 @@ Install `dnf` packages:
 ```sh
 sudo dnf -y install \
   zsh vim-enhanced gcc-c++ python3-pip fuse-libs pandoc fastfetch 7zip-standalone-all \
-  thunderbird chromium transmission inkscape audacity texstudio texlive-scheme-full jupyterlab \
-  gnome-extensions-app gnome-tweaks papirus-icon-theme f42-backgrounds-gnome gpaste gnome-shell-extension-gpaste
+  thunderbird chromium transmission inkscape audacity jupyterlab \
+  gnome-extensions-app gnome-tweaks papirus-icon-theme f42-backgrounds-gnome gpaste gnome-shell-extension-gpaste \
+  texlive-scheme-medium texlive-collection-mathscience texlive-collection-latexextra texlive-collection-bibtexextra texlive-collection-fontsrecommended texlive-collection-publishers
 ```
 
 Install `flatpak` packages:
@@ -331,6 +332,8 @@ gsettings set org.gnome.desktop.interface accent-color 'slate'
 ```
 
 Set `Background` to the dynamic version of `f42 background`:
+> [!NOTE]
+> Changing the wallpaper to the old **f42** default dynamic wallpaper.
 ```sh
 gsettings set org.gnome.desktop.background picture-uri 'file:///usr/share/backgrounds/f42/default/f42.xml'
 gsettings set org.gnome.desktop.background picture-uri-dark 'file:///usr/share/backgrounds/f42/default/f42.xml'
