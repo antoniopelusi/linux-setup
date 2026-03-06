@@ -2,58 +2,50 @@
 
 ---
 
-## 1. 🏛️ Enable Third Party Repositories
+## 1. 📦 Package Setup
 
-Enable **RPM Fusion** Third Party Repositories:
 ```sh
+# Enable RPM Fusion Third Party Repositories:
 sudo dnf -y install \
   https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
   https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-```
 
-Enable **Flathub** Third Party Repositories:
-```sh
+# Enable Flathub Third Party Repositories:
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-```
 
-Update **AppStream** metadata:
-> [!NOTE]
-> Updates AppStream metadata for RPM Fusion, so packages appear correctly in **Gnome Software**.
-```sh
+# Update AppStream metadata:
 sudo dnf -y group upgrade core
-```
 
----
+# Update dnf packages:
+sudo dnf -y update --refresh
 
-## 2. 🔄 Update the System
-
-Update `dnf` packages and reboot to apply:
-```sh
-sudo dnf -y offline-upgrade download
-sudo dnf -y offline-upgrade reboot
-```
-
-Update `flatpak` packages:
-```sh
+# Update flatpak packages:
 flatpak -y update
-```
 
-Update the **Firmware**:
-```sh
+# Update the Firmware:
 sudo fwupdmgr refresh --force
 sudo fwupdmgr update
+
+# Install dnf packages:
+sudo dnf -y install \
+  zsh vim-enhanced gcc-c++ python3-pip fuse-libs pandoc fastfetch 7zip-standalone-all \
+  thunderbird chromium transmission inkscape audacity jupyterlab texstudio texlive-scheme-full \
+  gnome-extensions-app gnome-tweaks papirus-icon-theme f42-backgrounds-gnome gpaste gnome-shell-extension-gpaste
+
+# Install flatpak packages:
+flatpak -y install flathub dev.zed.Zed
 ```
 
 ---
 
-## 3. 📟 Install Nvidia Driver
+## 2. 📟 Install NVIDIA driver
 
 > [!IMPORTANT]
 > Proceed with this section only if your PC has an **NVIDIA GPU** and the **Secure Boot** enabled.
 > 
 > Check if your PC has an **NVIDIA GPU**:
 > ```sh
-> lspci | grep -i nvidia
+> lspci | grep -iE "nvidia|vga|3d"
 > ```
 > 
 > Check **Secure Boot** status:
@@ -61,46 +53,33 @@ sudo fwupdmgr update
 > mokutil --sb-state
 > ```
 
-Install these requirements:
 ```sh
+# Install these requirements:
 sudo dnf -y install kmodtool akmods mokutil openssl
-```
 
-Generate a **default key**:
-```sh
-sudo kmodgenca -a
-```
-> [!WARNING]
-> If you get the message:
->> WARNING: EXISTING KEY PAIR.
-> 
-> add `--force` to the end of the command and run it again.
+# Generate a default key:
+sudo kmodgenca -a --force
 
-Enroll the key in **MOK**:
-```sh
+# Enroll the key in MOK, insert a simple and short password and reboot the system:
 sudo mokutil --import /etc/pki/akmods/certs/public_key.der
-```
-> [!TIP]
-> Insert a simple and short password. This password will be used later.
-
-Reboot the system:
-```sh
 systemctl reboot
 ```
 
-On the next boot **MOK Management** is launched, press enter then you have to choose `Enroll MOK`.
+On the next boot **MOK Management** is launched:
+`Enroll MOK` -> `Continue` -> `Yes` -> Enter the *password* created earlier -> `Reboot`.
 
-Choose `Continue` to enroll the key.
-
-Enroll by selecting `Yes`.
-
-You will need to enter the password you created earlier.
-
-Select `Reboot`.
-
-Install the driver and the CUDA library:
 ```sh
-sudo dnf -y install akmod-nvidia xorg-x11-drv-nvidia-cuda
+# Install the driver and the CUDA library and enable nvidia-modeset:
+sudo dnf -y install akmod-nvidia xorg-x11-drv-nvidia-cuda libva-nvidia-driver
+sudo grubby --update-kernel=ALL --args="nvidia-drm.modeset=1"
+
+# Install full ffmpeg and Additional Codecs:
+sudo dnf -y swap ffmpeg-free ffmpeg --allowerasing
+sudo dnf -y update @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
+
+# Enable OpenH264 for Firefox
+sudo dnf install -y openh264 gstreamer1-plugin-openh264 mozilla-openh264
+sudo dnf config-manager setopt fedora-cisco-openh264.enabled=1
 ```
 
 > [!CAUTION]
@@ -110,30 +89,16 @@ sudo dnf -y install akmod-nvidia xorg-x11-drv-nvidia-cuda
 > ```
 > Do not reboot. Keep repeating until the driver version appears.
 
-Enable `nvidia-modeset`:
-```sh
-sudo grubby --update-kernel=ALL --args="nvidia-drm.modeset=1"
-```
-
 ---
 
-## 4. 🎬 Install Codecs and HW Video Acceleration
+## 3. 🔲 Install CPU Hardware Codecs
 
-Install full **ffmpeg** and Additional Codecs:
-```sh
-sudo dnf -y swap ffmpeg-free ffmpeg --allowerasing
-sudo dnf -y update @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
-```
-
-Install CPU Hardware Codecs:
-> [!TIP]
+> [!IMPORTANT]
+> Only install the driver that corresponds to your **CPU manufacturer**.
 > Run the following command to check the CPU manufacturer:
 > ```sh
 > lscpu | grep "Model name"
 > ```
-
-> [!NOTE]
-> Only install the driver that corresponds to your **CPU manufacturer**.
 
 - For **Intel CPU**:
   ```sh
@@ -146,56 +111,18 @@ Install CPU Hardware Codecs:
   sudo dnf -y swap mesa-vdpau-drivers mesa-vdpau-drivers-freeworld
   ```
 
-Install **NVIDIA GPU** Hardware Codecs:
-> [!NOTE]
-> Only install this driver if your PC has an **NVIDIA GPU**.
-```sh
-sudo dnf -y install libva-nvidia-driver
-```
-
-Enable **OpenH264** for Firefox
-```sh
-sudo dnf install -y openh264 gstreamer1-plugin-openh264 mozilla-openh264
-sudo dnf config-manager setopt fedora-cisco-openh264.enabled=1
-```
-
-After this enable the **OpenH264** Plugin in Firefox's settings: [**about:addons**](about:addons) -> **Plugins** -> `···` -> `Always Activate`.
-
 ---
 
-## 5. 📦 Install Personal Packages
+## 4. ⚙️ Settings
 
-Install `dnf` packages:
 ```sh
-sudo dnf -y install \
-  zsh vim-enhanced gcc-c++ python3-pip fuse-libs pandoc fastfetch 7zip-standalone-all \
-  thunderbird chromium transmission inkscape audacity jupyterlab texstudio texlive-scheme-full \
-  gnome-extensions-app gnome-tweaks papirus-icon-theme f42-backgrounds-gnome gpaste gnome-shell-extension-gpaste
-```
-
-Install `flatpak` packages:
-```sh
-flatpak -y install flathub dev.zed.Zed
-```
-
----
-
-## 6. 💻 OS Configuration
-
-### 6.1 📥 Get the files
-
-Download the required files:
-```sh
+# Download the required files:
 curl -L \
   https://raw.githubusercontent.com/antoniopelusi/fedora-setup/main/files/AntonioPelusi.png -o ~/Downloads/AntonioPelusi.png \
   https://raw.githubusercontent.com/antoniopelusi/fedora-setup/main/files/firma.png -o ~/Templates/firma.png \
   https://raw.githubusercontent.com/antoniopelusi/fedora-setup/main/files/toolstab.config.json -o ~/Downloads/toolstab.config.json
-```
 
-### 6.2 📌 Gnome Dock and App Grid
-
-Set the Dock Favorite Apps:
-```sh
+# Set the Dock Favorite Apps:
 gsettings set org.gnome.shell favorite-apps "[]"
 gsettings set org.gnome.shell favorite-apps "[\
 'org.mozilla.firefox.desktop', \
@@ -203,112 +130,79 @@ gsettings set org.gnome.shell favorite-apps "[\
 'org.gnome.Nautilus.desktop', \
 'org.gnome.Ptyxis.desktop', \
 'dev.zed.Zed.desktop']"
-```
 
-Remove folders:
-```sh
+# Remove folders:
 gsettings set org.gnome.desktop.app-folders folder-children "[]"
-```
 
-### 6.3 ⚙️ Settings
-
-Settings -> Display: manually adjust `Resolution` and `Refresh Rate`.
-
-Settings -> Online Accounts: manually add `Google` Account.
-
-Add `minimize` and `maximize` buttons to the windows:
-```sh
+# Add minimize and maximize buttons to the windows:
 gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,maximize,close'
-```
 
-Setup `Night Light`:
-```sh
+# Setup Night Light:
 gsettings set org.gnome.settings-daemon.plugins.color night-light-schedule-automatic false
 gsettings set org.gnome.settings-daemon.plugins.color night-light-schedule-from 0
 gsettings set org.gnome.settings-daemon.plugins.color night-light-schedule-to 0
 gsettings set org.gnome.settings-daemon.plugins.color night-light-temperature 4700
-```
 
-Disable `Dim Screen`, `Automatic Screen Blank` and `Automatic Suspend (when plugged in)`:
-```sh
+# Enable Show Battery Percentage:
+gsettings set org.gnome.desktop.interface show-battery-percentage true
+
+# Disable Automatic Screen Brightness, Dim Screen, Automatic Screen Blank and Automatic Suspend:
+gsettings set org.gnome.settings-daemon.plugins.power ambient-enabled false
 gsettings set org.gnome.settings-daemon.plugins.power idle-dim false
 gsettings set org.gnome.desktop.session idle-delay 0
 gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type 'nothing'
-```
-
-Enable `Show Battery Percentage` and disable `Automatic Screen Brightness` and `Automatic Suspend (on battery power)`:
-> [!NOTE]
-> Only relevant on **laptop** devices.
-```sh
-gsettings set org.gnome.desktop.interface show-battery-percentage true
-gsettings set org.gnome.settings-daemon.plugins.power ambient-enabled false
 gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-type 'nothing'
-```
 
-Set `Right Alt` as `Compose Key`:
-```sh
+# Set Right Alt as Compose Key:
 gsettings set org.gnome.desktop.input-sources xkb-options "['compose:ralt']"
-```
 
-Enable `Automatic Date & Time` and `Automatic Time Zone`:
-```sh
+# Enable Automatic Date & Time and Automatic Time Zone:
 timedatectl set-ntp true
 gsettings set org.gnome.desktop.datetime automatic-timezone true
-```
 
-Set `24-hour` `Time Format`:
-```sh
+# Set 24-hour Time Format:
 gsettings set org.gnome.desktop.interface clock-format '24h'
-```
 
-Enable `Week Day`:
-```sh
+# Enable Week Day:
 gsettings set org.gnome.desktop.interface clock-show-weekday true
-```
 
-Set `AntonioPelusi.png` as `Avatar`:
-```sh
+# Set AntonioPelusi.png as Avatar and delete the .png file:
 dbus-send --system --print-reply --dest=org.freedesktop.Accounts \
   /org/freedesktop/Accounts/User$(id -u) \
   org.freedesktop.Accounts.User.SetIconFile \
   string:"$HOME/Downloads/AntonioPelusi.png"
-```
-
-Delete `AntonioPelusi.png`:
-```sh
 rm ~/Downloads/AntonioPelusi.png
-```
 
-Edit the `Device Name` (also called `hostname`):
-> [!IMPORTANT]
-> Choose a valid `<hostname>`.
-```sh
-sudo hostnamectl set-hostname "<hostname>"
-```
-
-Disable `NetworkManager-wait-online.service`:
-```sh
+# Disable NetworkManager-wait-online.service:
 sudo systemctl disable NetworkManager-wait-online.service
-```
 
-### 6.4 🗄️ Files
-
-Change the default zoom level:
-```sh
+# Change the default zoom level:
 gsettings set org.gnome.nautilus.icon-view default-zoom-level small
-```
 
-Create the `Projects/` directory, change its icon and add it to the bookmarks:
-```sh
+# Create the Projects/ directory, change its icon and add it to the bookmarks:
 mkdir ~/Projects
 gio set ~/Projects metadata::custom-icon-name "folder-code"
 echo "file://$HOME/Projects Projects" >> ~/.config/gtk-3.0/bookmarks
-```
 
-### 6.5 🌐 Configure DNS
+# Set Style to Dark:
+gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 
-Change DNS:
-```sh
+# Set Accent Color to Slate:
+gsettings set org.gnome.desktop.interface accent-color 'slate'
+
+# Set Background to the dynamic version of f42 background:
+
+gsettings set org.gnome.desktop.background picture-uri 'file:///usr/share/backgrounds/f42/default/f42.xml'
+gsettings set org.gnome.desktop.background picture-uri-dark 'file:///usr/share/backgrounds/f42/default/f42.xml'
+
+# Change Icon Pack:
+gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
+
+# Install papirus-folders and apply the bluegrey folder color to Papirus-Dark icon theme:
+curl -fsSL https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-folders/master/install.sh | sh
+papirus-folders -C bluegrey --theme Papirus-Dark
+
+# Change DNS:
 sudo nmcli con mod "$(nmcli -g NAME con show --active | head -1)" ipv4.dns "1.1.1.1 1.0.0.1 8.8.8.8 8.8.4.4"
 sudo nmcli con mod "$(nmcli -g NAME con show --active | head -1)" ipv6.dns "2606:4700:4700::1111 2606:4700:4700::1001 2001:4860:4860::8888 2001:4860:4860::8844"
 sudo nmcli con mod "$(nmcli -g NAME con show --active | head -1)" ipv4.ignore-auto-dns yes
@@ -316,47 +210,21 @@ sudo nmcli con mod "$(nmcli -g NAME con show --active | head -1)" ipv6.ignore-au
 sudo nmcli con mod "$(nmcli -g NAME con show --active | head -1)" connection.dns-over-tls opportunistic
 sudo nmcli con up "$(nmcli -g NAME con show --active | head -1)"
 ```
-> [!TIP]
-> Verify:
-> ```sh
-> resolvectl status
-> nmcli con show "$(nmcli -g NAME con show --active | head -1)" | grep DNS
-> ```
 
-### 6.6 🎨 UI and Appearance
-
-Set `Style` to `Dark`:
+Edit the Device Name (also called hostname):
+> [!WARNING]
+> Insert a valid `<hostname>`.
 ```sh
-gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+sudo hostnamectl set-hostname "<hostname>"
 ```
 
-Set `Accent Color` to `Slate`:
-```sh
-gsettings set org.gnome.desktop.interface accent-color 'slate'
-```
+Settings -> Display: manually adjust `Resolution` and `Refresh Rate`.
 
-Set `Background` to the dynamic version of `f42 background`:
-> [!NOTE]
-> Changing the wallpaper to the old **f42** default dynamic wallpaper.
-```sh
-gsettings set org.gnome.desktop.background picture-uri 'file:///usr/share/backgrounds/f42/default/f42.xml'
-gsettings set org.gnome.desktop.background picture-uri-dark 'file:///usr/share/backgrounds/f42/default/f42.xml'
-```
+Settings -> Online Accounts: manually add `Google` Account.
 
-Change Icon Pack:
-```sh
-gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
-```
+## 5. 📱 Apps configuration
 
-Install **papirus-folders** and apply the `bluegrey` folder color to `Papirus-Dark` icon theme:
-```sh
-curl -fsSL https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-folders/master/install.sh | sh
-papirus-folders -C bluegrey --theme Papirus-Dark
-```
-
-## 7. 📱 Apps configuration
-
-### 7.1 🦊 Firefox
+### 5.1 🦊 Firefox
 
 Login into Firefox to automatically sync and install the following extensions:
 - **GNOME Shell Integration**
@@ -384,57 +252,59 @@ rm ~/Downloads/toolstab.config.json
 
 In the **Dark Reader** settings, go to `Configure website toggling` and disable `Enabled by Default`.
 
-### 7.2 📧 Thunderbird
+Enable the **OpenH264** Plugin in Firefox's [**about:addons**](about:addons): -> **Plugins** -> `···` -> `Always Activate`.
+
+### 5.2 📧 Thunderbird
 
 Open **Thunderbird** and add the email accounts.
 
-### 7.3 🐙 Configure Git + GitHub
+### 5.3 🐙 Configure Git + GitHub
 
-Configure **Git**:
 ```sh
+# Configure Git:
 git config --global user.name "Antonio Pelusi"
 git config --global user.email "antoniopelusi2000@gmail.com"
 git config --global core.editor vim
+
+# Generate key for Github:
 ssh-keygen -t ed25519 -C "antoniopelusi2000@gmail.com"
 cat ~/.ssh/id_ed25519.pub
 ```
 
-Then copy the SSH key and [add it to GitHub](https://github.com/settings/ssh/new).
+Copy the SSH key and [add it to GitHub](https://github.com/settings/ssh/new).
 
-### 7.4 🐚 Configure Zsh
+### 5.4 🐚 Configure Zsh
 
-Install **Oh My Zsh** using this script:
 ```sh
+# Install Oh My Zsh:
 CHSH=no RUNZSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" -- --unattended
 chsh -s $(which zsh)
 zsh
-```
 
-While in **Zsh**, clone and install `.zsh_functions`:
-```sh
+# install .zsh_functions:
 git clone git@github.com:antoniopelusi/.zsh_functions.git ~/.zsh_functions
 cd ~/.zsh_functions
 make install
 source ~/.zshrc
-cd ~
+cd -
 ```
 > [!TIP]
 > Close and re-open the terminal to apply the shell change.
 
-### 7.5 🧩 Gnome Shell Extensions
-
-Disable `Background Logo` and enable `GPaste`:
-```sh
-gnome-extensions disable background-logo@fedorahosted.org
-gnome-extensions enable GPaste@gnome-shell-extensions.gnome.org
-```
+### 5.5 🧩 Gnome Shell Extensions
 
 Install the following extensions from [extensions.gnome.org](https://extensions.gnome.org):
 1. [**Alphabetical App Grid**](https://extensions.gnome.org/extension/4269/alphabetical-app-grid/)
 2. [**Vitals**](https://extensions.gnome.org/extension/1460/vitals/)
 
-Configure **Vitals**:
 ```sh
+# Disable Background Logo
+gnome-extensions disable background-logo@fedorahosted.org
+
+# Enable GPaste:
+gnome-extensions enable GPaste@gnome-shell-extensions.gnome.org
+
+# Configure Vitals:
 dconf load /org/gnome/shell/extensions/vitals/ << EOF
 [/]
 hot-sensors=['_processor_usage_', '_memory_usage_', '_gpu#1_utilization_', '__network-rx_max__', '__temperature_avg__']
@@ -445,7 +315,7 @@ gnome-extensions disable Vitals@CoreCoding.com
 gnome-extensions enable Vitals@CoreCoding.com
 ```
 
-### 7.6 📝 Zed
+### 5.6 📝 Zed
 
 Press `Ctrl`+`Alt`+`,` and replace the content with the following settings:
 ```json
@@ -503,31 +373,27 @@ Login using the **Github Account**.
 
 Press `Ctrl`+`Alt`+`B`, then `Ctrl`+`Alt`+`C` and configure **Github Copilot Chat**.
 
-### 7.7 📄 TeXstudio
+### 5.7 📄 TeXstudio
 
 Options -> Configure TeXstudio -> General: set `Style` to `Adwaita Dark (txs)`
 
 Options -> Configure TeXstudio -> Build: set `Default Bibliography Tool` to `Biber`
 
-### 7.8 📊 JupyterLab
+### 5.8 📊 JupyterLab
 
 Enable `Dark Reader` Extension for JupyterLab.
 
 ---
 
-## 8. 🧹 Cleanup
+## 9. 🔁 Cleanup and Final Reboot
 
-Cleanup unused dependencies:
 ```sh
+# Cleanup unused dependencies:
 sudo dnf -y autoremove
 sudo dnf -y clean all
 flatpak -y uninstall --unused
-```
 
-## 9. 🔁 Final Reboot
-
-Reboot the system:
-```sh
+# Reboot the system:
 systemctl reboot
 ```
 
