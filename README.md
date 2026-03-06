@@ -83,11 +83,11 @@ sudo dnf config-manager setopt fedora-cisco-openh264.enabled=1
 ```
 
 > [!CAUTION]
-> Check if the driver is built:
+> Before rebooting, check if the driver is built:
 > ```sh
 > modinfo -F version nvidia
 > ```
-> Do not reboot. Keep repeating until the driver version appears.
+> Keep repeating until the driver version appears.
 
 ---
 
