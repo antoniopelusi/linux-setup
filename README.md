@@ -196,7 +196,7 @@ curl -L \
   https://raw.githubusercontent.com/antoniopelusi/fedora-setup/main/files/toolstab.config.json -o ~/Downloads/toolstab.config.json
 ```
 
-### 7.2 📌 Dock and App Grid
+### 7.2 📌 Gnome Dock and App Grid
 
 Set the Dock Favorite Apps:
 ```sh
@@ -227,12 +227,10 @@ gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,m
 
 Setup `Night Light`:
 ```sh
-gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled true
 gsettings set org.gnome.settings-daemon.plugins.color night-light-schedule-automatic false
 gsettings set org.gnome.settings-daemon.plugins.color night-light-schedule-from 0
 gsettings set org.gnome.settings-daemon.plugins.color night-light-schedule-to 0
 gsettings set org.gnome.settings-daemon.plugins.color night-light-temperature 4700
-gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled false
 ```
 
 Disable `Dim Screen`, `Automatic Screen Blank` and `Automatic Suspend (when plugged in)`:
