@@ -31,8 +31,7 @@ sudo fwupdmgr -y update
 sudo dnf -y install \
   zsh vim-enhanced gcc-c++ python3-pip fuse fuse-libs pandoc fastfetch 7zip-standalone-all \
   thunderbird chromium transmission inkscape audacity jupyterlab texstudio texlive-scheme-full \
-  gnome-extensions-app gnome-tweaks papirus-icon-theme f42-backgrounds-gnome gpaste gnome-shell-extension-gpaste \
-  libfreeaptx libldac fdk-aac
+  gnome-extensions-app gnome-tweaks papirus-icon-theme f42-backgrounds-gnome gpaste gnome-shell-extension-gpaste
 
 # Install flatpak packages:
 flatpak -y install flathub dev.zed.Zed
@@ -102,9 +101,12 @@ sudo dnf -y install mesa-vulkan-drivers vulkan-loader mesa-libGLU
 sudo dnf -y swap ffmpeg-free ffmpeg --allowerasing
 sudo dnf -y update @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
 
-# Enable OpenH264 for Firefox
+# Enable OpenH264 for Firefox:
 sudo dnf install -y openh264 gstreamer1-plugin-openh264 mozilla-openh264
 sudo dnf config-manager setopt fedora-cisco-openh264.enabled=1
+
+# Install Bluetooth codecs:
+libfreeaptx libldac fdk-aac
 ```
 
 - For **Intel CPU**:
