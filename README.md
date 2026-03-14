@@ -31,7 +31,7 @@ sudo fwupdmgr -y update
 sudo dnf -y install \
   zsh vim-enhanced gcc-c++ python3-pip fuse fuse-libs pandoc fastfetch 7zip-standalone-all \
   thunderbird chromium transmission inkscape audacity jupyterlab texstudio texlive-scheme-full \
-  gnome-extensions-app gnome-tweaks papirus-icon-theme f42-backgrounds-gnome gpaste gnome-shell-extension-gpaste
+  gnome-extensions-app gnome-tweaks papirus-icon-theme f42-backgrounds-gnome
 
 # Install flatpak packages:
 flatpak -y install flathub dev.zed.Zed
@@ -301,6 +301,7 @@ cd -
 Install the following extensions from [extensions.gnome.org](https://extensions.gnome.org):
 1. [**Alphabetical App Grid**](https://extensions.gnome.org/extension/4269/alphabetical-app-grid/)
 2. [**Vitals**](https://extensions.gnome.org/extension/1460/vitals/)
+3. [**Clipboard Indicator**](https://extensions.gnome.org/extension/779/clipboard-indicator/)
 
 ```sh
 # Disable Background Logo
