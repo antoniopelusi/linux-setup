@@ -210,12 +210,15 @@ curl -fsSL https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-fold
 papirus-folders -C bluegrey --theme Papirus-Dark
 
 # Change DNS:
-sudo nmcli con mod "$(nmcli -g NAME con show --active | head -1)" ipv4.dns "1.1.1.1 1.0.0.1 8.8.8.8 8.8.4.4"
-sudo nmcli con mod "$(nmcli -g NAME con show --active | head -1)" ipv6.dns "2606:4700:4700::1111 2606:4700:4700::1001 2001:4860:4860::8888 2001:4860:4860::8844"
-sudo nmcli con mod "$(nmcli -g NAME con show --active | head -1)" ipv4.ignore-auto-dns yes
-sudo nmcli con mod "$(nmcli -g NAME con show --active | head -1)" ipv6.ignore-auto-dns yes
-sudo nmcli con mod "$(nmcli -g NAME con show --active | head -1)" connection.dns-over-tls opportunistic
-sudo nmcli con up "$(nmcli -g NAME con show --active | head -1)"
+sudo mkdir -p /etc/systemd/resolved.conf.d/
+sudo tee /etc/systemd/resolved.conf.d/dns.conf > /dev/null << EOF
+[Resolve]
+DNS=1.1.1.1 1.0.0.1 2606:4700:4700::1111 2606:4700:4700::1001
+FallbackDNS=8.8.8.8 8.8.4.4 2001:4860:4860::8888 2001:4860:4860::8844
+Domains=~.
+DNSOverTLS=opportunistic
+EOF
+sudo systemctl restart systemd-resolved
 ```
 
 Edit the Device Name (also called hostname):
