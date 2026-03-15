@@ -31,7 +31,7 @@ sudo fwupdmgr -y update
 sudo dnf -y install \
   zsh vim-enhanced gcc-c++ python3-pip fuse fuse-libs pandoc fastfetch 7zip-standalone-all \
   thunderbird chromium transmission inkscape audacity jupyterlab texstudio texlive-scheme-full \
-  gnome-extensions-app gnome-tweaks papirus-icon-theme f42-backgrounds-gnome
+  gnome-browser-connector gnome-extensions-app gnome-tweaks papirus-icon-theme f42-backgrounds-gnome
 
 # Install flatpak packages:
 flatpak -y install flathub dev.zed.Zed
@@ -180,9 +180,6 @@ dbus-send --system --print-reply --dest=org.freedesktop.Accounts \
   org.freedesktop.Accounts.User.SetIconFile \
   string:"$HOME/Downloads/AntonioPelusi.png"
 rm ~/Downloads/AntonioPelusi.png
-
-# Disable NetworkManager-wait-online.service:
-sudo systemctl disable NetworkManager-wait-online.service
 
 # Change the default zoom level:
 gsettings set org.gnome.nautilus.icon-view default-zoom-level small
