@@ -375,6 +375,8 @@ Press `Ctrl`+`Alt`+`,` and replace the content with the following settings:
 }
 ```
 
+Install [charmed-icons](https://zed.dev/extensions/charmed-icons) theme.
+
 Login using the **Github Account**.
 
 Press `Ctrl`+`Alt`+`B`, then `Ctrl`+`Alt`+`C` and configure **Github Copilot Chat**.
