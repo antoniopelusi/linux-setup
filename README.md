@@ -34,7 +34,7 @@ sudo dnf -y install \
   gnome-browser-connector gnome-extensions-app gnome-tweaks papirus-icon-theme f42-backgrounds-gnome
 
 # Install flatpak packages:
-flatpak -y install flathub dev.zed.Zed
+flatpak -y install flathub dev.zed.Zed org.upscayl.Upscayl
 ```
 
 ---
