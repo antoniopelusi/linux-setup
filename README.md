@@ -375,7 +375,7 @@ Press `Ctrl`+`Alt`+`,` and replace the content with the following settings:
 }
 ```
 
-Install [charmed-icons](zed://extension/charmed-icons) theme.
+Install [charmed-icons](https://zed.dev/extensions/charmed-icons) theme.
 
 Login using the **Github Account**.
 
