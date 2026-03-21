@@ -206,6 +206,10 @@ gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
 curl -fsSL https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-folders/master/install.sh | sh
 papirus-folders -C bluegrey --theme Papirus-Dark
 
+# Terminal configuration
+gsettings set org.gnome.Ptyxis restore-session false
+gsettings set org.gnome.Ptyxis restore-window-size false
+
 # Change DNS:
 sudo mkdir -p /etc/systemd/resolved.conf.d/
 sudo tee /etc/systemd/resolved.conf.d/dns.conf > /dev/null << EOF
