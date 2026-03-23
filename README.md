@@ -30,11 +30,13 @@ sudo fwupdmgr -y update
 # Install dnf packages:
 sudo dnf -y install \
   zsh vim-enhanced gcc-c++ python3-pip fuse fuse-libs pandoc fastfetch 7zip-standalone-all \
-  thunderbird chromium transmission inkscape audacity jupyterlab texstudio texlive-scheme-full \
+  thunderbird transmission jupyterlab texstudio texlive-scheme-full \
   gnome-browser-connector gnome-extensions-app gnome-tweaks papirus-icon-theme f42-backgrounds-gnome
 
 # Install flatpak packages:
-flatpak -y install flathub dev.zed.Zed org.upscayl.Upscayl
+flatpak -y install flathub \
+  dev.zed.Zed org.inkscape.Inkscape org.audacityteam.Audacity \
+  org.chromium.Chromium org.upscayl.Upscayl
 ```
 
 ---
