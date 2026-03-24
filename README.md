@@ -212,6 +212,9 @@ papirus-folders -C bluegrey --theme Papirus-Dark
 gsettings set org.gnome.Ptyxis restore-session false
 gsettings set org.gnome.Ptyxis restore-window-size false
 
+# Text Editor configuration
+gsettings set org.gnome.TextEditor restore-session false
+
 # Change DNS:
 sudo mkdir -p /etc/systemd/resolved.conf.d/
 sudo tee /etc/systemd/resolved.conf.d/dns.conf > /dev/null << EOF
