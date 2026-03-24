@@ -37,6 +37,11 @@ sudo dnf -y install \
 flatpak -y install flathub dev.zed.Zed org.upscayl.Upscayl
 ```
 
+```
+# Install games
+flatpak -y install flathub org.xonotic.Xonotic com.play0ad.zeroad
+```
+
 ---
 
 ## 2. 📟 Install NVIDIA driver
