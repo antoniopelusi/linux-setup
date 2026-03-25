@@ -251,6 +251,7 @@ Login into Firefox to automatically sync and install the following extensions:
 - **Dark Reader**
 - **ToolsTab**
 - **Adaptive Tab Bar Color**
+- **!Bang Quick Search**
 
 Disable `Always offer to translate`.
 
