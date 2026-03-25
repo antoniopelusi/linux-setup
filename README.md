@@ -39,7 +39,7 @@ flatpak -y install flathub dev.zed.Zed org.upscayl.Upscayl
 
 ```
 # Install games
-flatpak -y install flathub org.xonotic.Xonotic com.play0ad.zeroad
+flatpak -y install flathub org.xonotic.Xonotic com.play0ad.zeroad org.openmw.OpenMW
 ```
 
 ---
