@@ -37,11 +37,6 @@ sudo dnf -y install \
 flatpak -y install flathub dev.zed.Zed org.upscayl.Upscayl
 ```
 
-```sh
-# Install games
-flatpak -y install flathub org.xonotic.Xonotic org.zdoom.UZDoom org.openmw.OpenMW
-```
-
 ---
 
 ## 2. 📟 Install NVIDIA driver
@@ -403,6 +398,33 @@ Options -> Configure TeXstudio -> Build: set `Default Bibliography Tool` to `Bib
 ### 5.8 📊 JupyterLab
 
 Enable `Dark Reader` Extension for JupyterLab.
+
+---
+
+### 5.8 🕹️ Games
+
+```sh
+# Install games
+flatpak -y install flathub org.xonotic.Xonotic org.zdoom.UZDoom org.openmw.OpenMW
+```
+
+To setup UZDoom:
+- download `uzdoom.zip`
+- ```sh
+  # Unzip and move in the right directory
+  mkdir -p ~/.var/app/org.zdoom.UZDoom/data/games/uzdoom
+  unzip -q ~/Downloads/uzdoom.zip -d ~/.var/app/org.zdoom.UZDoom/data/games/uzdoom
+  rm ~/Downloads/uzdoom.zip
+  ```
+
+To setup OpenMW:
+- download `Morrowind.zip`
+- ```sh
+  # Unzip and move in the right directory
+  mkdir -p ~/.local/share/games/Morrowind
+  unzip -q ~/Downloads/Morrowind.zip -d ~/.local/share/games/Morrowind
+  rm ~/Downloads/Morrowind.zip
+  ```
 
 ---
 
