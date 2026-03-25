@@ -29,7 +29,7 @@ sudo fwupdmgr -y update
 
 # Install dnf packages:
 sudo dnf -y install \
-  zsh vim-enhanced gcc-c++ python3-pip fuse fuse-libs pandoc fastfetch fzf 7zip \
+  zsh vim-enhanced gcc-c++ python3-pip fuse fuse-libs pandoc fastfetch fzf \
   thunderbird transmission inkscape audacity jupyterlab texstudio texlive-scheme-full \
   gnome-browser-connector gnome-extensions-app gnome-tweaks papirus-icon-theme f42-backgrounds-gnome
 
@@ -39,7 +39,7 @@ flatpak -y install flathub dev.zed.Zed org.upscayl.Upscayl
 
 ```sh
 # Install games
-flatpak -y install flathub org.xonotic.Xonotic org.openmw.OpenMW
+flatpak -y install flathub org.xonotic.Xonotic org.zdoom.UZDoom org.openmw.OpenMW
 ```
 
 ---
