@@ -37,7 +37,7 @@ sudo dnf -y install \
 flatpak -y install flathub dev.zed.Zed org.upscayl.Upscayl
 ```
 
-```
+```sh
 # Install games
 flatpak -y install flathub org.xonotic.Xonotic org.openmw.OpenMW
 ```
