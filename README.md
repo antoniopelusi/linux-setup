@@ -408,7 +408,10 @@ Enable `Dark Reader` Extension for JupyterLab.
 
 ```sh
 # Install games
-flatpak -y install flathub org.xonotic.Xonotic info.urbanterror.UrbanTerror org.zdoom.UZDoom org.openmw.OpenMW
+flatpak -y install flathub \
+  org.xonotic.Xonotic \
+  info.urbanterror.UrbanTerror \
+  org.zdoom.UZDoom org.openmw.OpenMW
 ```
 
 To setup UZDoom:
