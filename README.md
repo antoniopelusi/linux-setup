@@ -30,7 +30,7 @@ sudo fwupdmgr -y update
 # Install dnf packages:
 sudo dnf -y install \
   zsh vim-enhanced gcc-c++ python3-pip fuse fuse-libs pandoc fastfetch fzf \
-  thunderbird transmission inkscape audacity jupyterlab texstudio texlive-scheme-full \
+  thunderbird transmission gimp inkscape audacity jupyterlab texstudio texlive-scheme-full \
   gnome-browser-connector gnome-extensions-app gnome-tweaks papirus-icon-theme f42-backgrounds-gnome
 
 # Install flatpak packages:
@@ -408,29 +408,8 @@ Enable `Dark Reader` Extension for JupyterLab.
 
 ```sh
 # Install games
-flatpak -y install flathub \
-  org.xonotic.Xonotic \
-  info.urbanterror.UrbanTerror \
-  org.zdoom.UZDoom org.openmw.OpenMW
+sudo dnf -y install xonotic urbanterror openmw
 ```
-
-To setup UZDoom:
-- download `uzdoom.zip`
-- ```sh
-  # Unzip and move in the right directory
-  mkdir -p ~/.var/app/org.zdoom.UZDoom/data/games/uzdoom
-  unzip -q ~/Downloads/uzdoom.zip -d ~/.var/app/org.zdoom.UZDoom/data/games/uzdoom
-  rm ~/Downloads/uzdoom.zip
-  ```
-
-To setup OpenMW:
-- download `Morrowind.zip`
-- ```sh
-  # Unzip and move in the right directory
-  mkdir -p ~/.local/share/games/Morrowind
-  unzip -q ~/Downloads/Morrowind.zip -d ~/.local/share/games/Morrowind
-  rm ~/Downloads/Morrowind.zip
-  ```
 
 ---
 
