@@ -189,9 +189,6 @@ mkdir ~/Projects
 gio set ~/Projects metadata::custom-icon-name "folder-code"
 echo "file://$HOME/Projects Projects" >> ~/.config/gtk-3.0/bookmarks
 
-# Disable Hot Corners:
-gsettings set org.gnome.desktop.interface enable-hot-corners false
-
 # Set Style to Dark:
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 
