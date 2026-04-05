@@ -117,6 +117,7 @@ sudo dnf -y install libfreeaptx libldac fdk-aac
   ```sh
   sudo dnf -y swap mesa-va-drivers mesa-va-drivers-freeworld
   sudo dnf -y swap mesa-vdpau-drivers mesa-vdpau-drivers-freeworld
+  sudo dnf -y install libavcodec-freeworld
   ```
 
 ---
