@@ -3,16 +3,16 @@
   "clipboard-2": "",
   "links-content": "[{\"text1\":\"chess.com\",\"text2\":\"https://www.chess.com/\"},{\"text1\":\"claude\",\"text2\":\"https://claude.ai\"},{\"text1\":\"coinbase\",\"text2\":\"https://www.coinbase.com/\"},{\"text1\":\"coinmarketcap\",\"text2\":\"https://coinmarketcap.com/\"},{\"text1\":\"fineco\",\"text2\":\"https://finecobank.com/\"},{\"text1\":\"github\",\"text2\":\"https://github.com/antoniopelusi\"},{\"text1\":\"gmail\",\"text2\":\"https://mail.google.com/\"},{\"text1\":\"google\",\"text2\":\"asd\"},{\"text1\":\"google calendar\",\"text2\":\"https://calendar.google.com/\"},{\"text1\":\"google drive\",\"text2\":\"https://drive.google.com/\"},{\"text1\":\"google keep\",\"text2\":\"https://keep.google.com/\"},{\"text1\":\"openai\",\"text2\":\"https://chatgpt.com/\"},{\"text1\":\"primevideo\",\"text2\":\"https://www.primevideo.com/\"},{\"text1\":\"reddit\",\"text2\":\"https://www.reddit.com/\"},{\"text1\":\"telegram\",\"text2\":\"https://web.telegram.org/\"},{\"text1\":\"whatsapp\",\"text2\":\"https://web.whatsapp.com/\"},{\"text1\":\"youtube\",\"text2\":\"https://www.youtube.com/\"},{\"text1\":\"youtubemusic\",\"text2\":\"https://music.youtube.com\"}]",
   "clipboard-3": "",
+  "clipboard-4": "",
   "notepad": "\"\"",
   "customBackgroundColor": "#313039",
-  "dynamicbackground": "true",
   "clipboard-1": "",
-  "bookmarks": "[{\"name\":\"chess.com\",\"url\":\"https://www.chess.com\"},{\"name\":\"Claude\",\"url\":\"https://claude.ai\"},{\"name\":\"coinmarketcap\",\"url\":\"https://coinmarketcap.com\"},{\"name\":\"Fineco\",\"url\":\"https://finecobank.com\"},{\"name\":\"GitHub\",\"url\":\"https://github.com/antoniopelusi\"},{\"name\":\"Gmail\",\"url\":\"https://mail.google.com\"},{\"name\":\"Google Calendar\",\"url\":\"https://calendar.google.com\"},{\"name\":\"Google Drive\",\"url\":\"https://drive.google.com\"},{\"name\":\"Google Gemini\",\"url\":\"https://gemini.google.com\"},{\"name\":\"Google Keep\",\"url\":\"https://keep.google.com\"},{\"name\":\"OpenAI\",\"url\":\"https://chatgpt.com\"},{\"name\":\"Reddit\",\"url\":\"https://www.reddit.com\"},{\"name\":\"Spotify\",\"url\":\"https://open.spotify.com\"},{\"name\":\"Telegram\",\"url\":\"https://web.telegram.org/a\"},{\"name\":\"TradingView\",\"url\":\"https://tradingview.com/chart/\"},{\"name\":\"Whatsapp\",\"url\":\"https://web.whatsapp.com\"},{\"name\":\"Youtube\",\"url\":\"https://www.youtube.com\"}]",
+  "bookmarks": "[{\"name\":\"chess.com\",\"url\":\"https://www.chess.com\"},{\"name\":\"Claude\",\"url\":\"https://claude.ai\"},{\"name\":\"coinmarketcap\",\"url\":\"https://coinmarketcap.com\"},{\"name\":\"Fineco\",\"url\":\"https://finecobank.com\"},{\"name\":\"GitHub\",\"url\":\"https://github.com/antoniopelusi\"},{\"name\":\"Gmail\",\"url\":\"https://mail.google.com\"},{\"name\":\"Google Calendar\",\"url\":\"https://calendar.google.com\"},{\"name\":\"Google Drive\",\"url\":\"https://drive.google.com\"},{\"name\":\"Google Gemini\",\"url\":\"https://gemini.google.com\"},{\"name\":\"Google Keep\",\"url\":\"https://keep.google.com\"},{\"name\":\"Reddit\",\"url\":\"https://www.reddit.com\"},{\"name\":\"Spotify\",\"url\":\"https://open.spotify.com\"},{\"name\":\"Telegram\",\"url\":\"https://web.telegram.org/a\"},{\"name\":\"TradingView\",\"url\":\"https://tradingview.com/chart/\"},{\"name\":\"Whatsapp\",\"url\":\"https://web.whatsapp.com\"},{\"name\":\"Youtube\",\"url\":\"https://www.youtube.com\"}]",
   "todolist": "[]",
-  "clipboard": "[\"\",\"\",\"\",\"\",\"\"]",
+  "use24h": "true",
   "dynamicBackground": "true",
   "todolist-content": "[]",
-  "clipboard-4": "",
-  "clipboard-5": "",
-  "use24h": "true"
+  "dynamicbackground": "true",
+  "clipboard": "[\"\",\"\",\"\",\"\",\"\"]",
+  "clipboard-5": ""
 }
