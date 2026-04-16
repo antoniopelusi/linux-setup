@@ -29,7 +29,7 @@ sudo fwupdmgr -y update
 
 # Install dnf packages:
 sudo dnf -y install \
-  zsh vim-enhanced gcc-c++ python3-pip fuse fuse-libs pandoc fastfetch fzf \
+  zsh vim-enhanced gcc-c++ python3-pip fuse fuse-libs pandoc fastfetch fzf ripgrep \
   thunderbird transmission gimp inkscape audacity jupyterlab texstudio texlive-scheme-full \
   gnome-browser-connector gnome-extensions-app gnome-tweaks papirus-icon-theme f42-backgrounds-gnome
 
