@@ -11,7 +11,7 @@ sudo apt -y upgrade
 sudo apt -y dist-upgrade
 
 # Install dnf packages:
-sudo apt -y install vim zsh git
+sudo apt -y install vim zsh git mint-meta-codecs
 ```
 
 ---
