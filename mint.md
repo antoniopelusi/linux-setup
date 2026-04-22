@@ -40,7 +40,7 @@ gsettings set org.cinnamon.settings-daemon.plugins.power sleep-inactive-battery-
 gsettings set org.cinnamon.desktop.wm.preferences mouse-button-modifier "<Super>"
 
 # Set dark mode:
-gsettings set org.x.apps.portal.color-scheme 'prefer-dark'
+gsettings set org.x.apps.portal color-scheme 'prefer-dark'
 gsettings set org.cinnamon.desktop.interface gtk-theme 'Mint-Y-Dark'
 ```
 
