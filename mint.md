@@ -11,7 +11,7 @@ sudo apt -y upgrade
 sudo apt -y dist-upgrade
 
 # Install dnf packages:
-sudo apt -y install vim zsh git mint-meta-codecs
+sudo apt -y install vim zsh git
 ```
 
 ---
@@ -27,6 +27,9 @@ gsettings set org.cinnamon.desktop.background primary-color '#2f2f2f'
 # Set natural scroll:
 gsettings set org.cinnamon.desktop.peripherals.touchpad natural-scroll true
 
+# Set favorite apps:
+gsettings set org.cinnamon favorite-apps "[]"
+gsettings set org.cinnamon favorite-apps "['firefox.desktop', 'nemo.desktop', 'org.gnome.Terminal.desktop']"
 ```
 
 ### 4. 🦊 Configure Firefox
