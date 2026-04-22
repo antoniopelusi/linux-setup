@@ -247,6 +247,7 @@ Login into Firefox to automatically sync and install the following extensions:
 - **ToolsTab**
 - **Adaptive Tab Bar Color**
 - **!Bang Quick Search**
+- **Ublock Origin**
 
 Disable `Always offer to translate`.
 
