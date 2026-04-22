@@ -24,12 +24,10 @@ gsettings set org.cinnamon.desktop.background picture-options 'none'
 gsettings set org.cinnamon.desktop.background color-shading-type 'solid'
 gsettings set org.cinnamon.desktop.background primary-color '#2f2f2f'
 
-# Set natural scroll:
-gsettings set org.cinnamon.desktop.peripherals.touchpad natural-scroll true
-
 # Set favorite apps:
-gsettings set org.cinnamon favorite-apps "[]"
-gsettings set org.cinnamon favorite-apps "['firefox.desktop', 'nemo.desktop', 'org.gnome.Terminal.desktop']"
+dconf write /org/cinnamon/panel-launchers "['firefox.desktop', 'nemo.desktop', 'gnome-terminal.desktop']"
+
+
 ```
 
 ### 4. 🦊 Configure Firefox
