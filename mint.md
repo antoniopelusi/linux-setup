@@ -77,7 +77,7 @@ echo 'source $ZSH/oh-my-zsh.sh' >> ~/.zshrc
 
 ```sh
 # Cleanup unused dependencies:
-sudo apt -y autoremove
+sudo apt-get -y autoremove --purge
 sudo apt autoclean
 
 # Reboot the system:
