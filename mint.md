@@ -24,7 +24,18 @@ gsettings set org.cinnamon.desktop.background picture-options 'none'
 gsettings set org.cinnamon.desktop.background color-shading-type 'solid'
 gsettings set org.cinnamon.desktop.background primary-color '#2a2a2e'
 
+# Disable lock screen
+gsettings set org.cinnamon.desktop.lockdown disable-lock-screen true
+gsettings set org.cinnamon.desktop.screensaver lock-enabled false
+gsettings set org.cinnamon.desktop.screensaver lock-on-suspend false
 
+# Disable suspension
+gsettings set org.cinnamon.settings-daemon.plugins.power sleep-display-ac 0
+gsettings set org.cinnamon.settings-daemon.plugins.power sleep-inactive-ac-timeout 0
+gsettings set org.cinnamon.settings-daemon.plugins.power sleep-display-battery 0
+gsettings set org.cinnamon.settings-daemon.plugins.power sleep-inactive-battery-timeout
+0
+gsettings set org.cinnamon.desktop.session idle-delay 0
 ```
 
 Set the following pinned app order:
