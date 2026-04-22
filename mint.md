@@ -24,17 +24,24 @@ gsettings set org.cinnamon.desktop.background picture-options 'none'
 gsettings set org.cinnamon.desktop.background color-shading-type 'solid'
 gsettings set org.cinnamon.desktop.background primary-color '#2a2a2e'
 
-# Disable lock screen
+# Disable lock screen:
 gsettings set org.cinnamon.desktop.lockdown disable-lock-screen true
 gsettings set org.cinnamon.desktop.screensaver lock-enabled false
 gsettings set org.cinnamon.settings-daemon.plugins.power lock-on-suspend false
 gsettings set org.cinnamon.desktop.session idle-delay 0
 
-# Disable suspension
+# Disable suspension:
 gsettings set org.cinnamon.settings-daemon.plugins.power sleep-display-ac 0
 gsettings set org.cinnamon.settings-daemon.plugins.power sleep-inactive-ac-timeout 0
 gsettings set org.cinnamon.settings-daemon.plugins.power sleep-display-battery 0
 gsettings set org.cinnamon.settings-daemon.plugins.power sleep-inactive-battery-timeout 0
+
+# Change the key to move a window:
+gsettings set org.cinnamon.desktop.wm.preferences mouse-button-modifier "<Super>"
+
+# Set dark mode:
+gsettings set org.x.apps.portal.color-scheme 'prefer-dark'
+gsettings set org.cinnamon.desktop.interface gtk-theme 'Mint-Y-Dark'
 ```
 
 Set the following pinned app order:
