@@ -52,6 +52,8 @@ Set the following pinned app order:
 
 ### 4. 🦊 Configure Firefox
 
+Hide startpage weather widget and shortcuts.
+
 Install the following extension:
 - [**uBlock Origin**](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
 
