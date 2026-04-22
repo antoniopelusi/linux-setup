@@ -35,6 +35,7 @@ gsettings set org.cinnamon.settings-daemon.plugins.power sleep-display-ac 0
 gsettings set org.cinnamon.settings-daemon.plugins.power sleep-inactive-ac-timeout 0
 gsettings set org.cinnamon.settings-daemon.plugins.power sleep-display-battery 0
 gsettings set org.cinnamon.settings-daemon.plugins.power sleep-inactive-battery-timeout 0
+gsettings set org.cinnamon.settings-daemon.plugins.power idle-dim-battery 0
 
 # Change the key to move a window:
 gsettings set org.cinnamon.desktop.wm.preferences mouse-button-modifier "<Super>"
@@ -62,10 +63,10 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 ```
 ```sh
 # Clear .zshrc
-echo 'export PATH=$$HOME/bin:$$HOME/.local/bin:/usr/local/bin:$$PATH' > ~/.zshrc
-echo 'export ZSH="$$HOME/.oh-my-zsh"' >> ~/.zshrc
+echo 'export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH' > ~/.zshrc
+echo 'export ZSH="$HOME/.oh-my-zsh"' >> ~/.zshrc
 echo 'ZSH_THEME="bira"' >> ~/.zshrc
-echo 'source $$ZSH/oh-my-zsh.sh' >> ~/.zshrc
+echo 'source $ZSH/oh-my-zsh.sh' >> ~/.zshrc
 ```
 > [!TIP]
 > Close and re-open the terminal to apply the shell change.
