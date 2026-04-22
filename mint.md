@@ -59,7 +59,8 @@ Install the following extension:
 ```sh
 # Install Oh My Zsh:
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
+```
+```sh
 # Clear .zshrc
 echo 'export PATH=$$HOME/bin:$$HOME/.local/bin:/usr/local/bin:$$PATH' > ~/.zshrc
 echo 'export ZSH="$$HOME/.oh-my-zsh"' >> ~/.zshrc
