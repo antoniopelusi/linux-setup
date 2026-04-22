@@ -22,13 +22,15 @@ sudo apt -y install vim zsh git
 # Set background:
 gsettings set org.cinnamon.desktop.background picture-options 'none'
 gsettings set org.cinnamon.desktop.background color-shading-type 'solid'
-gsettings set org.cinnamon.desktop.background primary-color '#2f2f2f'
-
-# Set favorite apps:
-dconf write /org/cinnamon/panel-launchers "['firefox.desktop', 'nemo.desktop', 'gnome-terminal.desktop']"
+gsettings set org.cinnamon.desktop.background primary-color '#2a2a2e'
 
 
 ```
+
+Set the following pinned app order:
+1. Firefox
+2. Files
+3. Terminal
 
 ### 4. 🦊 Configure Firefox
 
