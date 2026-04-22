@@ -35,7 +35,7 @@ gsettings set org.cinnamon.settings-daemon.plugins.power sleep-display-ac 0
 gsettings set org.cinnamon.settings-daemon.plugins.power sleep-inactive-ac-timeout 0
 gsettings set org.cinnamon.settings-daemon.plugins.power sleep-display-battery 0
 gsettings set org.cinnamon.settings-daemon.plugins.power sleep-inactive-battery-timeout 0
-gsettings set org.cinnamon.settings-daemon.plugins.power idle-dim-battery 0
+gsettings set org.cinnamon.settings-daemon.plugins.power idle-dim-battery 'false'
 
 # Change the key to move a window:
 gsettings set org.cinnamon.desktop.wm.preferences mouse-button-modifier "<Super>"
