@@ -334,6 +334,7 @@ Press `Ctrl`+`Alt`+`,` and replace the content with the following settings:
 {
   // --- AI ---
   "agent": {
+    "sidebar_side": "right",
     "dock": "right",
   },
   "edit_predictions": {
