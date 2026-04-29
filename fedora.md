@@ -70,9 +70,8 @@ On the next boot **MOK Management** is launched:
 `Enroll MOK` -> `Continue` -> `Yes` -> Enter the *password* created earlier -> `Reboot`.
 
 ```sh
-# Install the driver and the CUDA library and enable nvidia-modeset:
+# Install the driver and the CUDA library
 sudo dnf -y install akmod-nvidia xorg-x11-drv-nvidia-cuda libva-nvidia-driver
-sudo grubby --update-kernel=ALL --args="nvidia-drm.modeset=1"
 ```
 
 > [!CAUTION]
@@ -95,7 +94,7 @@ sudo grubby --update-kernel=ALL --args="nvidia-drm.modeset=1"
 
 ```sh
 # Vulkan and basic acceleration (AMD & Intel):
-sudo dnf -y install mesa-vulkan-drivers vulkan-loader mesa-libGLU
+sudo dnf -y install mesa-vulkan-drivers vulkan-loader mesa-libGLU ffmpeg-libs libva libva-utils
 
 # Install full ffmpeg and Additional Codecs:
 sudo dnf -y swap ffmpeg-free ffmpeg --allowerasing
@@ -112,6 +111,7 @@ sudo dnf -y install libfreeaptx libldac fdk-aac
 - For **Intel CPU**:
   ```sh
   sudo dnf -y swap libva-intel-media-driver intel-media-driver --allowerasing
+  sudo dnf install libva-intel-driver
   ```
 - For **AMD CPU**:
   ```sh
