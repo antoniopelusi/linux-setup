@@ -333,6 +333,9 @@ Press `Ctrl`+`Alt`+`,` and replace the content with the following settings:
 ```json
 {
   // --- AI ---
+  "agent": {
+    "dock": "right",
+  },
   "edit_predictions": {
     "provider": "none",
   },
@@ -361,6 +364,7 @@ Press `Ctrl`+`Alt`+`,` and replace the content with the following settings:
 
   // --- Panels ---
   "project_panel": {
+    "dock": "left",
     "show_diagnostics": "off",
   },
   "outline_panel": { "button": false },
@@ -368,7 +372,6 @@ Press `Ctrl`+`Alt`+`,` and replace the content with the following settings:
   "search": { "button": false },
   "diagnostics": { "button": false },
   "debugger": { "button": false },
-  "notification_panel": { "button": false },
   "global_lsp_settings": { "button": false },
 
   // --- Privacy ---
