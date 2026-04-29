@@ -111,12 +111,12 @@ sudo dnf -y install libfreeaptx libldac fdk-aac
 - For **Intel CPU**:
   ```sh
   sudo dnf -y swap libva-intel-media-driver intel-media-driver --allowerasing
-  sudo dnf install libva-intel-driver
+  sudo dnf -y install libva-intel-driver
   ```
 - For **AMD CPU**:
   ```sh
-  sudo dnf -y swap mesa-va-drivers mesa-va-drivers-freeworld
-  sudo dnf -y swap mesa-vdpau-drivers mesa-vdpau-drivers-freeworld
+  sudo dnf -y install mesa-va-drivers-freeworld
+  sudo dnf -y install mesa-va-drivers-freeworld.i686
   ```
 
 ---
