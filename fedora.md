@@ -385,6 +385,9 @@ Press `Ctrl`+`Alt`+`,` and replace the content with the following settings:
   "session": {
     "trust_all_worktrees": true,
   },
+
+  // --- CLI ---
+  "cli_default_open_behavior": "existing_window",
 }
 ```
 
