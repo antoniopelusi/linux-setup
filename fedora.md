@@ -387,7 +387,7 @@ Press `Ctrl`+`Alt`+`,` and replace the content with the following settings:
   },
 
   // --- CLI ---
-  "cli_default_open_behavior": "existing_window",
+  "cli_default_open_behavior": "new_window",
 }
 ```
 
