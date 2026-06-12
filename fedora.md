@@ -236,6 +236,8 @@ Settings -> Display: manually adjust `Resolution` and `Refresh Rate`.
 
 Settings -> Online Accounts: manually add `Google` Account.
 
+---
+
 ## 5. 📱 Apps configuration
 
 ### 5.1 🦊 Firefox
@@ -270,9 +272,13 @@ In the **Dark Reader** settings, go to `Configure website toggling` and disable 
 
 Enable the **OpenH264** Plugin in Firefox's [**about:addons**](about:addons): -> **Plugins** -> `···` -> `Always Activate`.
 
+---
+
 ### 5.2 📧 Thunderbird
 
 Open **Thunderbird** and add the email accounts.
+
+---
 
 ### 5.3 🐙 Configure Git + GitHub
 
@@ -289,6 +295,8 @@ cat ~/.ssh/id_ed25519.pub
 
 Copy the SSH key and [add it to GitHub](https://github.com/settings/ssh/new).
 
+---
+
 ### 5.4 🐚 Configure Zsh
 
 ```sh
@@ -304,6 +312,8 @@ cd -
 ```
 > [!TIP]
 > Close and re-open the terminal to apply the shell change.
+
+---
 
 ### 5.5 🧩 Gnome Shell Extensions
 
@@ -326,6 +336,8 @@ EOF
 gnome-extensions disable Vitals@CoreCoding.com
 gnome-extensions enable Vitals@CoreCoding.com
 ```
+
+---
 
 ### 5.6 📝 Zed
 
@@ -397,11 +409,13 @@ Login using the **Github Account**.
 
 Press `Ctrl`+`Alt`+`B`, then `Ctrl`+`Alt`+`C` and configure **Github Copilot Chat**.
 
+---
+
 ### 5.7 📄 TeXstudio
 
 Options -> Configure TeXstudio -> General: set `Style` to `Adwaita Dark (txs)`
 
-Options -> Configure TeXstudio -> Build: set `Default Bibliography Tool` to `Biber`
+---
 
 ### 5.8 📊 JupyterLab
 
@@ -409,14 +423,13 @@ Enable `Dark Reader` Extension for JupyterLab.
 
 ---
 
-### 5.8 🕹️ Games
+### 5.9 🕹️ Games
 
 ```sh
 # Install games
 flatpak -y install flathub \
   org.xonotic.Xonotic \
-  info.urbanterror.UrbanTerror \
-  org.zdoom.UZDoom org.openmw.OpenMW
+  info.urbanterror.UrbanTerror
 ```
 
 ---
