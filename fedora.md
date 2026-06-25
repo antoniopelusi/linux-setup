@@ -29,7 +29,7 @@ sudo fwupdmgr -y update
 
 # Install dnf packages:
 sudo dnf -y install \
-  zsh vim-enhanced gcc-c++ python3-pip fuse fuse-libs pandoc fastfetch fzf ripgrep \
+  zsh vim-enhanced gcc-c++ python3-pip fuse fuse-libs pandoc fastfetch fzf ripgrep expect \
   thunderbird transmission gimp inkscape audacity jupyterlab texstudio texlive-scheme-full \
   gnome-browser-connector gnome-extensions-app gnome-tweaks papirus-icon-theme f42-backgrounds-gnome
 
@@ -411,19 +411,34 @@ Press `Ctrl`+`Alt`+`B`, then `Ctrl`+`Alt`+`C` and configure **Github Copilot Cha
 
 ---
 
-### 5.7 📄 TeXstudio
+### 5.7 🦙 Ollama
+
+```sh
+# Install Ollama with CUDA support
+curl -fsSL https://ollama.com/install.sh | sh
+
+# Start process
+sudo systemctl enable --now ollama
+
+# Pull model
+ollama run hf.co/bartowski/Qwen2.5-Coder-7B-Instruct-GGUF:Q4_K_M
+```
+
+---
+
+### 5.8 📄 TeXstudio
 
 Options -> Configure TeXstudio -> General: set `Style` to `Adwaita Dark (txs)`
 
 ---
 
-### 5.8 📊 JupyterLab
+### 5.9 📊 JupyterLab
 
 Enable `Dark Reader` Extension for JupyterLab.
 
 ---
 
-### 5.9 🕹️ Games
+### 5.10 🕹️ Games
 
 ```sh
 # Install games
