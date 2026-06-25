@@ -420,9 +420,8 @@ curl -fsSL https://ollama.com/install.sh | sh
 # Start process
 sudo systemctl enable --now ollama
 
-# Pull models
+# Pull model
 ollama run hf.co/bartowski/Qwen2.5-Coder-3B-Instruct-GGUF:Q4_K_M
-ollama run hf.co/bartowski/Qwen2.5-Coder-7B-Instruct-GGUF:Q4_K_M
 ```
 
 ---
