@@ -411,34 +411,19 @@ Press `Ctrl`+`Alt`+`B`, then `Ctrl`+`Alt`+`C` and configure **Github Copilot Cha
 
 ---
 
-### 5.7 🦙 Ollama
-
-```sh
-# Install Ollama with CUDA support
-curl -fsSL https://ollama.com/install.sh | sh
-
-# Start process
-sudo systemctl enable --now ollama
-
-# Pull model
-ollama run hf.co/bartowski/Qwen_Qwen3.5-4B-GGUF:Q4_K_M
-```
-
----
-
-### 5.8 📄 TeXstudio
+### 5.7 📄 TeXstudio
 
 Options -> Configure TeXstudio -> General: set `Style` to `Adwaita Dark (txs)`
 
 ---
 
-### 5.9 📊 JupyterLab
+### 5.8 📊 JupyterLab
 
 Enable `Dark Reader` Extension for JupyterLab.
 
 ---
 
-### 5.10 🕹️ Games
+### 5.9 🕹️ Games
 
 ```sh
 # Install games
